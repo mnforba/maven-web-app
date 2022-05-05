@@ -8,7 +8,7 @@ node {
 
 
     stage('1-Clone the code') {
-       git credentialsId: 'GitHubcredentials', url: 'https://github.com/mnforba/maven-web-application' 
+       git credentialsId: 'GitHubcredentials', url: 'https://github.com/mnforba/maven-web-app' 
     }
     stage('2-mavenBuild') {
       sh "${MavenHome}/bin/mvn clean package"
@@ -19,6 +19,7 @@ node {
     stage('4-UploadArtifacts') {
        sh "${MavenHome}/bin/mvn deploy"
     }
+     /*
    # stage ('5-Deploy-UAT') {
     #   deploy adapters: [tomcat9(credentialsId: 'tomcatcredentials', path: '', url: 'http://54.175.4.27:7000/')], contextPath: null, war: 'target/*.war'
     }
@@ -27,6 +28,7 @@ node {
        Build from Ebay pipeline project.
        Landmark Technologies''', subject: 'Build status', to: 'developers'
     }
+    */
     stage('approval') {
        timeout(time:8, unit: 'HOURS' ) {
         input message: 'Please verify and approve'
