@@ -5,7 +5,7 @@ node
 def mavenHome = tool name: 'maven3.6.3'
 stage('1. CodeClone') 
 {
-git credentialsId: 'Github_credentials', url: 'https://github.com/myLandmakTechnology/maven-web-app.git'
+git credentialsId: 'Github_credentials', url: 'https://github.com/mnforba/maven-web-app.git'
 }
 stage('2. Build')
 {
@@ -57,7 +57,7 @@ node {
  		}
 		}
 		steps{
-			git credentialsId: 'GitHUB-CREDENTIALS', url: 'https://github.com/Landmark-Technologies/maven-web-application'
+			git credentialsId: 'GitHUB-CREDENTIALS', url: 'https://github.com/mnforba/maven-web-app'
 		}
 	}
 }
